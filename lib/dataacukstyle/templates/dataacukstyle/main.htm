@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)><!-->
+<html lang="en">
+<!--<![endif]-->
+	<head>
+		<!-- general metas -->
+		<meta name="author" content="Ian Barker">
+		<meta charset="utf=8">
+		<meta http-equiv="Content-Type" content="text/html">
+
+		<!-- mobile-specific metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!--	<link rel="stylesheet" href="{{@SCHEME}}://{{@HOST}}{{@BASE}}/html_assets/{{@STYLE}}/uos-internal.css" />
+		<link rel="stylesheet" media="screen" href="{{@SCHEME}}://{{@HOST}}{{@BASE}}/html_assets/{{@STYLE}}/uos-mobile.css">
+		<link rel="stylesheet" media="screen" href="{{@SCHEME}}://{{@HOST}}{{@BASE}}/html_assets/floraform/ff.css">-->
+
+	<!--	<link rel="stylesheet" href="http://network-bar.data.ac.uk/subsite.css" type="text/css">-->
+
+		<link rel="stylesheet" href="{{@SCHEME}}://{{@HOST}}{{@BASE}}/html_assets/data_ac_uk_style.css"/>
+
+	<!--	<script type="text/javascript" src="{{@SCHEME}}://{{@HOST}}{{@BASE}}/html_assets/tiny_mce/tiny_mce.js"></script>-->
+		<script type="text/javascript" src="{{@SCHEME}}://{{@HOST}}{{@BASE}}/html_assets/jquery.js"></script>
+	<!--	<script src="{{@SCHEME}}://{{@HOST}}{{@BASE}}/html_assets/floraform/ff.js"></script>-->
+	<!--	<link rel="stylesheet" media="screen" href="{{@SCHEME}}://{{@HOST}}{{@BASE}}/html_assets/style.css">-->
+		<title>{{@title}} - {{@app_name}}</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="sixteen columns padding_top_30 padding_bottom_20">
+			<!--	<script type="text/javascript">
+					function showNavigation(){
+						document.getElementById("uos-header").style.display = "block";
+						document.getElementById("uos-hide-nav").style.display = "block";
+						document.getElementById("uos-show-nav").style.display = "none";
+						document.getElementById("uos-left-nav").style.display = "block";
+					}
+					function hideNavigation(){
+						document.getElementById("uos-header").style.display = "none";
+						document.getElementById("uos-hide-nav").style.display = "none";
+						document.getElementById("uos-show-nav").style.display = "block";
+						document.getElementById("uos-left-nav").style.display = "none";
+					}
+				</script>
+				<div class="uos-show-nav" id="uos-show-nav" onclick="showNavigation()">Show navigation</div>
+				<div class="uos-hide-nav" id="uos-hide-nav" onclick="hideNavigation()">Hide navigation</div>-->
+				<div class="header">
+				<!--	<div class="uos-logo"> </div>-->
+				<!--	<check if="{{isset(@user)}}">
+						<div class="uos-logged-in-user">Logged in as {{@user->givenname}} {{@user->familyname}} <a href="{{@BASE}}/logout">Log out</a></div>
+					</check>-->
+					<div class="page-name">
+						<h1>{{@app_name}}</h1>
+						<h2>{{@app_tag_line}}</h2>
+					</div>
+					<div class="main-nav">
+						<repeat group="{{@main_nav}}" key="{{@link_text}}" value="{{@url}}">
+							<a href="{{@url}}">{{@link_text}}</a>
+						</repeat>
+					</div>
+					<div class="second-nav">
+						<repeat group="{{@secondary_nav}}" key="{{@link_text}}" value="{{@url}}">
+							<a href="{{@url}}">{{@link_text}}</a>
+						</repeat>
+					</div>
+				</div>
+				<div class="main-block">
+					<div class="left-block">
+						<repeat group="{{@left_column}}" value="{{@template}}">
+							<include href="{{@template}}" />
+						</repeat>
+					</div>
+					<div class="page-content">
+						<repeat group="{{@templates}}" value="{{@template}}">
+							<include href="{{@template}}" />
+						</repeat>
+					</div>
+					<div class="right-block">
+						<repeat group="{{@right_column}}" value="{{@template}}">
+							<include href="{{@template}}" />
+						</repeat>
+					</div>
+				</div>
+			<!--	<div class="uos-footer">
+					<span class="item">Copyright &copy; University of Southampton</span>
+				</div>-->
+			</div>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript" src="http://network-bar.data.ac.uk/network-bar.js"></script>

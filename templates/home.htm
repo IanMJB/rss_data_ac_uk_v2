@@ -1,0 +1,43 @@
+<div class="search_area">
+	<form name="search" method="get" action="">
+		<div>		
+			Search for:
+		</div>
+		<div>
+			<div class="checkbox_area">
+				<repeat group="{{@groups}}" key="{{@group_name}}" value="{{@group_db_name}}">
+					<label class="group_checkbox_label" for="{{@group_db_name}}">
+						<input type="checkbox" class="group_checkbox" name="groups[]" id="{{@group_db_name}}" value="{{@group_db_name}}"/>
+						{{@group_name}}
+					</label>
+				</repeat>
+			</div>
+			<input type="text" class="search_box" name="query"/>
+			<input type="submit" value="Search">
+		</div>
+	</form>
+</div>
+<div class="area_titles">
+	<h2 class="rss_link">
+		<a href="{{@rss_url}}" target="_blank">
+			Results as RSS
+		</a>
+	</h2>
+	<h2>
+		{{@title}}
+	</h2>
+</div>
+<div class="post_area">
+	<repeat group="{{@posts}}" key="{{@array_index}}" value="{{@post}}">
+		<div class="post">
+			<h3 class="post_title">
+				<a href="{{@post[post_url]}}">
+					{{@post[post_title]}}
+				</a>
+			</h3>
+			<div class="post_desc">
+				{{@post[post_desc] | raw}}
+			</div>
+		</div>
+	</repeat>
+</div>

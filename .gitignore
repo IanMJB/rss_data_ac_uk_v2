@@ -1,2 +1,5 @@
 tmp/
 secrets.ini
+scripts/rss.cron.script
+logs/cron_logs/*
+logs/db_counts/*
