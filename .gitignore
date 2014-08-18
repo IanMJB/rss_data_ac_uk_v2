@@ -1,5 +1,5 @@
 tmp/
 secrets.ini
-scripts/rss.cron.script
+scripts/cron_script.sh
 logs/cron_logs/*
 logs/db_counts/*
