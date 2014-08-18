@@ -7,12 +7,13 @@ Revamped version of rss.data.ac.uk - updated back-end and now using Fat-Free PHP
 Fill in secrets.ini.template with relevant information to produce secrets.ini (leave in same directory as secrets.ini.template) - you can remove secrets.ini.template afterwards.
 
 Ensure MySQL is set to use UTF-8 as default - in my.cnf, under `[mysqld]`, ensure the following are written:
-
-`init_connect = 'SET collation_connection = utf8_unicode_ci'i`
-`init_connect = 'SET NAMES utf8'`
-`character-set-server = utf8`
-`collation-server = utf8_unicode_ci`
-`skip-character-set-client-handshake`
+```
+init_connect = 'SET collation_connection = utf8_unicode_ci'
+init_connect = 'SET NAMES utf8'
+character-set-server = utf8
+collation-server = utf8_unicode_ci
+skip-character-set-client-handshake
+```
 
 Run scripts/initialise_db.php.
 
