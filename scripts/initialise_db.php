@@ -1,6 +1,6 @@
 <?php
 
-$config	= parse_ini_file(__dir__.'/../secrets.ini', true);
+$config	= parse_ini_file(__DIR__.'/../secrets.ini', true);
 
 $db	= create_database($config);
 create_tables($db);
