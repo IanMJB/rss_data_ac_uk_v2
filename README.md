@@ -21,9 +21,9 @@ Add scripts/cron_script.sh to your crontab to run however often you like.
 Depends on web server being used.
 
 I am personally using Apache2:
-*Create a .conf in /etc/apache2/sites-available with the DocumentRoot as <abs_path>/rss_data_v2.
-*Run a2ensite on the .conf.
-*Restart Apache2.
+* Create a .conf in /etc/apache2/sites-available with the DocumentRoot as <abs_path>/rss_data_v2.
+* Run a2ensite on the .conf.
+* Restart Apache2.
 
 ## Maintanence
 
