@@ -3,5 +3,5 @@ Template for script to be run be cronjob to run main.php, then perform a count o
 #!/bin/bash
 
 start=$(date +"%d_%m_%Y_%H_%M_%S")
-php <abs_path>/bin/main.php > <abs_path>/logs/cron_logs/log_$start.txt
-php <abs_path>/scripts/database_count.php > <abs_path>/logs/db_counts/count_$start.txt
+php /<abs_path>/bin/main.php > /<abs_path>/logs/cron_logs/log_$start.txt
+php /<abs_path>/scripts/database_count.php > /<abs_path>/logs/db_counts/count_$start.txt
