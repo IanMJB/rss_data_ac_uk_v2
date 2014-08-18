@@ -19,6 +19,7 @@ function create_database($config)
 	$db		= new PDO("mysql:host=$db_host;charset=$db_charset", $db_user, $db_password, array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
 	$db->exec('CREATE DATABASE `'.$db_name.'`;');
+	$db->exec('USE '.$db_name.';');
 
 	return $db;
 }
@@ -37,7 +38,7 @@ function create_tables($db)
 	$db->exec('CREATE TABLE `feeds` (
 			`feed_id` int(11) NOT NULL AUTO_INCREMENT,
 			`feed_title` varchar(255) DEFAULT NULL,
-			`feed_desc` varchar(2550 DEFAULT NULL,
+			`feed_desc` varchar(255) DEFAULT NULL,
 			`feed_url` varchar(255) NOT NULL,
 			`title_url_hash` char(32) NOT NULL,
 			`inst_id` int(11) NOT NULL,
