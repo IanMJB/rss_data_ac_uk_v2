@@ -110,7 +110,7 @@ function recent_posts_as_rss($no_recent_posts)
 	foreach($posts as $post)
 	{
 		$item	= new Item();
-		$item	->title($post['post_title'])
+		$item	->title(html_entity_decode($post['post_title'], ENT_QUOTES, 'UTF-8'))
 			->description(html_entity_decode($post['post_desc'], ENT_QUOTES, 'UTF-8'))
 			->url($post['post_url'])
 			->pubDate(strtotime($post['post_date']))
@@ -143,7 +143,7 @@ function recent_posts_in_groups_as_rss($no_recent_posts)
 	foreach($posts as $post)
 	{
 		$item	= new Item();
-		$item	->title($post['post_title'])
+		$item	->title(html_entity_decode($post['post_title'], ENT_QUOTES, 'UTF-8'))
 			->description(html_entity_decode($post['post_desc'], ENT_QUOTES, 'UTF-8'))
 			->url($post['post_url'])
 			->pubDate(strtotime($post['post_date']))
@@ -209,7 +209,7 @@ function searched_posts_as_rss()
 	foreach($posts as $post)
 	{
 		$item	= new Item();
-		$item	->title($post['post_title'])
+		$item	->title(html_entity_decode($post['post_title'], ENT_QUOTES, 'UTF-8'))
 			->description(html_entity_decode($post['post_desc'], ENT_QUOTES, 'UTF-8'))
 			->url($post['post_url'])
 			->pubDate(strtotime($post['post_date']))
@@ -243,7 +243,7 @@ function searched_posts_in_groups_as_rss()
 	foreach($posts as $post)
 	{
 		$item	= new Item();
-		$item	->title($post['post_title'])
+		$item	->title(html_entity_decode($post['post_title'], ENT_QUOTES, 'UTF-8'))
 			->description(html_entity_decode($post['post_desc'], ENT_QUOTES, 'UTF-8'))
 			->url($post['post_url'])
 			->pubDate(strtotime($post['post_date']))
