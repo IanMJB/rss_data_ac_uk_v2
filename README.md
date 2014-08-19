@@ -3,6 +3,10 @@ Revamped version of rss.data.ac.uk - updated back-end and now using Fat-Free PHP
 
 ## Installation Instructions
 
+### Initial Setup
+
+Clone this repository, then run `git submodules init` and `git submodules update` to properly setup the libraries used.
+
 ### Database (MySQL) Initialisation
 Fill in secrets.ini.template with relevant information to produce secrets.ini (leave in same directory as secrets.ini.template) - you can remove secrets.ini.template afterwards.
 
@@ -15,14 +19,14 @@ collation-server = utf8_unicode_ci
 skip-character-set-client-handshake
 ```
 
-Run scripts/initialise_db.php.
+Run `scripts/initialise_db.php`.
 
 ### Populating Database
 Fill in scripts/cron_script.sh.template with relevant path information to produce cron_script.sh (again, both leave in the same directory, and remove cron_script.sh.template if you wish).
 
 Create the following directories: logs, logs/cron_logs and logs/db_counts.
 
-Run scripts/cron_script.sh - this is advised over just running bin/main.php manually as this will cause the logs to be created in the correct location, and a database count to be run aftwards.
+Run `scripts/cron_script.sh` - this is advised over just running bin/main.php manually as this will cause the logs to be created in the correct location, and a database count to be run aftwards.
 
 Add scripts/cron_script.sh to your crontab to run however often you like.
 
@@ -30,6 +34,7 @@ Add scripts/cron_script.sh to your crontab to run however often you like.
 Depends on web server being used.
 
 I am personally using Apache2:
+* Change the group of rss_data_v2 to www-data, and permissions to 775.
 * Create a .conf in /etc/apache2/sites-available with the DocumentRoot as \<abs_path>/rss_data_v2 (or, if you have renamed the folder, to its current name).
 * Run a2ensite on the .conf.
 * Restart Apache2.
