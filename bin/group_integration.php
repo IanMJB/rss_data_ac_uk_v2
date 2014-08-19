@@ -27,7 +27,7 @@ class group_integration
 			$affected_rows	= $update_stmt->rowCount();
 			if($affected_rows === 0)
 			{
-				echo 'Meta-data unchanged, ignored: ', $inst['inst_pdomain'], "\n";
+				echo 'Meta-data unchanged/institution not in database, ignored: ', $inst['inst_pdomain'], "\n";
 			}
 			elseif($affected_rows === 1)
 			{
