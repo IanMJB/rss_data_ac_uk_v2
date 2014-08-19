@@ -5,7 +5,7 @@ Revamped version of rss.data.ac.uk - updated back-end and now using Fat-Free PHP
 
 ### Initial Setup
 
-Clone this repository, then run `git submodules init` and `git submodules update` to properly setup the libraries used.
+Clone this repository, then run `git submodule init` and `git submodule update` to properly setup the libraries used.
 
 ### Database (MySQL) Initialisation
 Fill in secrets.ini.template with relevant information to produce secrets.ini (leave in same directory as secrets.ini.template) - you can remove secrets.ini.template afterwards.
