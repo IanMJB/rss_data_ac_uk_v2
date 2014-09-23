@@ -1562,7 +1562,11 @@ div#main div.resizable-textarea .grippie { display: none; visibility: hidden; }
 }
 
 /*====Additions====*/
-.rss_link { float: right; }
+.rss_link_area { float: right; }
+.rss_link_text {
+	float: left;
+	padding-right: 0.5em;
+}
 .post { margin-top: 1em; }
 .post img {
 	max-width: 100%; height: auto;
