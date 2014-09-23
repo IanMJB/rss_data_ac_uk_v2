@@ -88,34 +88,5 @@ class group_integration
 			}
 		}
 		return $group_data;
-
-/*		$source_data	= file_get_contents($data_url);
-		$lines		= explode(PHP_EOL, $source_data);
-
-		#Remove first line (column headers).
-		array_shift($lines);
-
-		$group_data	= array();
-		foreach($lines as $line)
-		{
-			#If the URL is set.
-			if(isset($line[9]))
-			{
-				$line	= str_getcsv($line);
-				#Empty groups results in '' being inserted into the database rather than left as NULL.
-				if($line[12] === '')
-				{
-					$line[12] = NULL;
-				}
-				#Name/Groups/URL.
-				$group_data[]	= array(
-							'inst_name'	=> $line[1],
-							'inst_groups'	=> $line[12],
-							'inst_pdomain'	=> $line[9]
-						       );
-			}
-		}
-		return $group_data;*/
 	}
-
 }
