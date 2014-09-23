@@ -49,7 +49,47 @@ class group_integration
 	********************************************************/
 	function get_university_groups($data_url = 'http://learning-provider.data.ac.uk/data/learning-providers-plus.csv')
 	{
-		$source_data	= file_get_contents($data_url);
+		#Column ordering changes, so built up on the assumption that the titles do not.
+		$inst_name_key          = 'PROVIDER_NAME';
+		$inst_groups_key        = 'GROUPS';
+		$inst_url_key           = 'WEBSITE_URL';
+
+		$source_data            = file_get_contents($data_url);
+		$lines                  = explode(PHP_EOL, $source_data);
+
+		$column_titles          = array_shift($lines);
+		$column_titles          = str_getcsv($column_titles);
+
+		$column_locations       = array_flip($column_titles);
+
+		$group_data             = array();
+		foreach($lines as $line)
+		{
+			$line           = str_getcsv($line);
+
+			#Only populate if the URL is set.
+			if(isset($line[$column_locations[$inst_url_key]]))
+			{
+				#Empty groups results in '' being inserted into the database rather than NULL, this fixes that.
+				if($line[$column_locations[$inst_name_key]] === '')
+				{
+					$line[$column_locations[$inst_name_key]]        = NULL;
+				}
+				if($line[$column_locations[$inst_groups_key]] === '')
+				{
+					$line[$column_locations[$inst_groups_key]]      = NULL;
+				}
+				#Name/Groups/URL.
+				$group_data[]   = array(
+							'inst_name'     => $line[$column_locations[$inst_name_key]],
+							'inst_groups'   => $line[$column_locations[$inst_groups_key]],
+							'inst_pdomain'  => $line[$column_locations[$inst_url_key]]
+						       );
+			}
+		}
+		return $group_data;
+
+/*		$source_data	= file_get_contents($data_url);
 		$lines		= explode(PHP_EOL, $source_data);
 
 		#Remove first line (column headers).
@@ -75,7 +115,7 @@ class group_integration
 						       );
 			}
 		}
-		return $group_data;
+		return $group_data;*/
 	}
 
 }
