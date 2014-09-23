@@ -8,7 +8,8 @@ Revamped version of rss.data.ac.uk - updated back-end and now using Fat-Free PHP
 Clone this repository, then run `git submodule init` and `git submodule update --recursive` to properly setup the libraries used.
 
 ### Database (MySQL) Initialisation
-Fill in secrets.ini.template with relevant information to produce secrets.ini (leave in same directory as secrets.ini.template) - you can remove secrets.ini.template afterwards.
+
+Fill in secrets.ini.template with relevant information to produce secrets.ini (leave this file in the same directory as secrets.ini.template) - you can remove secrets.ini.template afterwards.
 
 Ensure MySQL is set to use UTF-8 as default - in my.cnf, under `[mysqld]`, ensure the following are written:
 ```
