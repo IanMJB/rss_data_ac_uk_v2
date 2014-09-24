@@ -140,6 +140,8 @@ class db_utilities{
 					AS intersect_table
 					GROUP BY post_title, post_desc, post_date, post_url
 					HAVING COUNT(*) >= 2
+					ORDER BY post_date
+					DESC
 					LIMIT ?';
 
 		$sql_select_stmt	= $db->prepare($sql_select);
@@ -188,7 +190,9 @@ class db_utilities{
 					)
 					AS intersect_table
 					GROUP BY post_title, post_desc, post_date, post_url
-					HAVING COUNT(*) >= 2';
+					HAVING COUNT(*) >= 2
+					ORDER BY post_date
+					DESC';
 
 		$sql_select_stmt	= $db->prepare($sql_select);
 		$input			= array_merge(array($terms, $terms), $groups);
